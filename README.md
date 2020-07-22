@@ -96,6 +96,10 @@ and ask your node to pull a test docker from dockerhub to run (for example, the 
 
 The docker-compose.yml file in the atomCAT folder will spin up local instances of pgAdmin4, postgreSQL, juPyter notebook, R2RML and GraphDB all in one single deployment.
 
+### Radiomics (O-RAW)
+
+More to follow later.
+
 ### XNAT docker instance
 
 For a local imaging repository we will use XNAT running as another docker. This will facility deep learning and radiomics for imaging.
