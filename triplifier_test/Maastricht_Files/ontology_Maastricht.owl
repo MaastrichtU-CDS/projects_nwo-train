@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:db="http://localhost/rdf/ontology/"
+	xmlns:dbo="http://um-cds/ontologies/databaseontology/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/TableRow">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ColumnCell">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/PrimaryKey">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ForeignKey">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_column">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_value">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_unit">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ColumnReference">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/table">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/catalog">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/schema">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/column">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht</label>
+	<dbo:table>triplifier_test_HN_Maastricht</dbo:table>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.id">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.id</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>id</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.index_tumour_location">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.index_tumour_location</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>index_tumour_location</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.age_at_diagnosis">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.age_at_diagnosis</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>age_at_diagnosis</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.biological_sex">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.biological_sex</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>biological_sex</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.performance_status_ecog">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.performance_status_ecog</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>performance_status_ecog</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.overall_hpv_p16_status">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.overall_hpv_p16_status</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>overall_hpv_p16_status</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.clin_t">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.clin_t</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>clin_t</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.clin_n">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.clin_n</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>clin_n</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.clin_m">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.clin_m</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>clin_m</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.ajcc_stage">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.ajcc_stage</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>ajcc_stage</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.pretreat_hb_in_mmolperlitre">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.pretreat_hb_in_mmolperlitre</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>pretreat_hb_in_mmolperlitre</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.cancer_surgery_performed">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.cancer_surgery_performed</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>cancer_surgery_performed</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.chemotherapy_given">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.chemotherapy_given</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>chemotherapy_given</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.radiotherapy_total_treat_time">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.radiotherapy_total_treat_time</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>radiotherapy_total_treat_time</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.radiotherapy_refgydose_perfraction_highriskgtv">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.radiotherapy_refgydose_perfraction_highriskgtv</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>radiotherapy_refgydose_perfraction_highriskgtv</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.radiotherapy_refgydose_total_highriskgtv">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.radiotherapy_refgydose_total_highriskgtv</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>radiotherapy_refgydose_total_highriskgtv</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.radiotherapy_number_fractions_highriskgtv">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.radiotherapy_number_fractions_highriskgtv</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>radiotherapy_number_fractions_highriskgtv</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.event_overall_survival">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.event_overall_survival</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>event_overall_survival</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.overall_survival_in_days">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.overall_survival_in_days</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>overall_survival_in_days</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.event_recurrence_metastatic_free_survival">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.event_recurrence_metastatic_free_survival</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>event_recurrence_metastatic_free_survival</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.recurrence_metastatic_free_survival_in_days">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.recurrence_metastatic_free_survival_in_days</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>recurrence_metastatic_free_survival_in_days</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.event_local_recurrence">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.event_local_recurrence</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>event_local_recurrence</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.local_recurrence_in_days">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.local_recurrence_in_days</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>local_recurrence_in_days</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.event_locoregional_recurrence">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.event_locoregional_recurrence</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>event_locoregional_recurrence</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.locoregional_recurrence_in_days">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.locoregional_recurrence_in_days</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>locoregional_recurrence_in_days</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.event_distant_metastases">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.event_distant_metastases</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>event_distant_metastases</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht.distant_metastases_in_days">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Maastricht.distant_metastases_in_days</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Maastricht"/>
+	<dbo:column>distant_metastases_in_days</dbo:column>
+</rdf:Description>
+
+</rdf:RDF>
