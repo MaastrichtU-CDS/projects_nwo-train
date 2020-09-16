@@ -1,0 +1,31 @@
+
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+
+INSERT {
+
+	GRAPH <http://annotation.local/Maastricht> {
+        
+     db:triplifier_test_HN_Maastricht owl:equivalentClass ncit:C16960.
+        
+	 db:triplifier_test_HN_Maastricht.id owl:equivalentClass ncit:C25364.
+        
+     db:triplifier_test_HN_Maastricht.biological_sex owl:equivalentClass ncit:C28421.
+        
+     db:triplifier_test_HN_Maastricht.id roo:P100018 db:triplifier_test_HN_Maastricht.biological_sex.          #has_gender
+        
+     dbo:has_value owl:equivalentProperty roo:P100042.    #has_value
+        
+      }
+
+} WHERE {
+ 
+
+}
+       
