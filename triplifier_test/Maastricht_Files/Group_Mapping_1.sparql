@@ -1,4 +1,3 @@
-
 PREFIX db: <http://localhost/rdf/ontology/>
 PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
 PREFIX roo: <http://www.cancerdata.org/roo/>
@@ -10,15 +9,17 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 INSERT {
 
-	GRAPH <http://annotation.local/Maastricht> {
-        
+	GRAPH <http://annotation.local/> {
+         
      db:triplifier_test_HN_Maastricht owl:equivalentClass ncit:C16960.
         
-	 db:triplifier_test_HN_Maastricht.id owl:equivalentClass ncit:C25364.
+     db:triplifier_test_HN_Maastricht.id owl:equivalentClass ncit:C25364.
         
      db:triplifier_test_HN_Maastricht.biological_sex owl:equivalentClass ncit:C28421.
         
-     db:triplifier_test_HN_Maastricht.id roo:P100018 db:triplifier_test_HN_Maastricht.biological_sex.          #has_gender
+     db:triplifier_test_HN_Maastricht roo:has db:triplifier_test_HN_Maastricht.id. #has_identifier
+        
+     db:triplifier_test_HN_Maastricht roo:P100018 db:triplifier_test_HN_Maastricht.biological_sex. #has_gender
         
      dbo:has_value owl:equivalentProperty roo:P100042.    #has_value
         
