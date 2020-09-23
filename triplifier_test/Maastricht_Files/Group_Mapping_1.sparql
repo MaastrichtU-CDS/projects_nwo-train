@@ -17,7 +17,7 @@ INSERT {
         
      db:triplifier_test_HN_Maastricht.biological_sex owl:equivalentClass ncit:C28421.
         
-     db:triplifier_test_HN_Maastricht roo:has db:triplifier_test_HN_Maastricht.id. #has_identifier
+     db:triplifier_test_HN_Maastricht roo:P100061 db:triplifier_test_HN_Maastricht.id. #has_identifier
         
      db:triplifier_test_HN_Maastricht roo:P100018 db:triplifier_test_HN_Maastricht.biological_sex. #has_gender
         
