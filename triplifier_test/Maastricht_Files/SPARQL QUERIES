@@ -14,15 +14,10 @@ WHERE
     
 ?patient roo:P100061 ?ID;
     	 roo:P100018 ?g.
-    	
- ?x a ?patient.
- ?x dbo:has_column ?y, ?z.
+
+ ?ID roo:P100042 ?patientID.
  
- ?y a ?ID.
- ?y roo:P100042 ?patientID.
-    
- ?z a ?g.
- ?z roo:P100042 ?gender.
+ ?g roo:P100042 ?gender.
 
 
 }
