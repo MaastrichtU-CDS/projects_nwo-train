@@ -19,17 +19,39 @@ INSERT {
         
      ?tablerow roo:P100022 ?hpv.
         
-     db:triplifier_test_HN_Maastricht owl:equivalentClass ncit:C16960.
+     ?tablerow roo:P100214 ?asa.
         
-     db:triplifier_test_HN_Maastricht.id owl:equivalentClass ncit:C25364.
+     ?tablerow roo:P100214 ?whostatus.
         
-     db:triplifier_test_HN_Maastricht.biological_sex owl:equivalentClass ncit:C28421.
+     ?tablerow roo:P100029 ?neoplasm.
         
-     db:triplifier_test_HN_Maastricht.index_tumour_location owl:equivalentClass ncit:C3263.
+     ?tablerow roo:P100403 ?surgery.
+        
+     ?tablerow roo:P100254 ?death.
+        
+     ?tablerow roo:has ?survival.
+        
+     ?tablerow roo:P100229 ?followup.
+        
+     ?tablerow roo:has ?datacollection.
+        
+     ?tablerow roo:C94626 ?chemo.
+        
+     ?tablerow roo:P100024 ?ct.
+        
+     ?tablerow roo:P100024 ?pet.
+        
+    db:triplifier_test_HN_Maastricht owl:equivalentClass ncit:C16960.
+        
+    db:triplifier_test_HN_Maastricht.id owl:equivalentClass ncit:C25364.
+        
+    db:triplifier_test_HN_Maastricht.biological_sex owl:equivalentClass ncit:C28421.
+        
+    db:triplifier_test_HN_Maastricht.index_tumour_location owl:equivalentClass ncit:C3263.
 
-     db:triplifier_test_HN_Maastricht.age_at_diagnosis owl:equivalentClass roo:C100003.
+	db:triplifier_test_HN_Maastricht.age_at_diagnosis owl:equivalentClass roo:C100003.
         
-     db:triplifier_test_HN_Maastricht.performance_status_ecog owl:equivalentClass roo:whostatus.
+    db:triplifier_test_HN_Maastricht.performance_status_ecog owl:equivalentClass roo:whostatus.
 
 	db:triplifier_test_HN_Maastricht.overall_hpv_p16_status owl:equivalentClass ncit:C128839.
 
@@ -41,13 +63,11 @@ INSERT {
 
 	db:triplifier_test_HN_Maastricht.ajcc_stage owl:equivalentClass roo:C100052.
 
-	db:triplifier_test_HN_Maastricht.ajcc_stage owl:equivalentClass roo:C100052.
-
 	db:triplifier_test_HN_Maastricht.pretreat_hb_in_mmolperlitre owl:equivalentClass roo:asaScore.
 
 	db:triplifier_test_HN_Maastricht.cancer_surgery_performed owl:equivalentClass ncit:C17173.
         
-      db:triplifier_test_HN_Maastricht.chemotherapy_given owl:equivalentClass ncit:C94626.
+    db:triplifier_test_HN_Maastricht.chemotherapy_given owl:equivalentClass ncit:C94626.
 
 	db:triplifier_test_HN_Maastricht.radiotherapy_total_treat_time owl:equivalentClass roo:rttotaldays.
 
@@ -82,12 +102,13 @@ WHERE
 {
     ?tablerow rdf:type db:triplifier_test_HN_Maastricht.
     
-	?tablerow dbo:has_column ?patientID, ?gender.
+	?tablerow dbo:has_column ?patientID, ?gender, ?age.
 	
     ?patientID rdf:type db:triplifier_test_HN_Maastricht.id. 
     
     ?gender rdf:type db:triplifier_test_HN_Maastricht.biological_sex.
+    
+    ?age rdf:type db:triplifier_test_HN_Maastricht.age_at_diagnosis.
         
         
       }
-       
