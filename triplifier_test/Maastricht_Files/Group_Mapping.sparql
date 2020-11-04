@@ -17,7 +17,7 @@ INSERT {
         
      ?tablerow roo:has ?age, ?overallsurvivaldays, ?survival.		 #has
         
-     ?age roo:P100027 "Years".			 #has_unit
+     ?age roo:P100027 ?years.			 #has_unit
         
      ?overallsurvivaldays roo:P100027 "Days".			 #has_unit
         
@@ -76,6 +76,8 @@ INSERT {
 
 	db:triplifier_test_HN_Maastricht.age_at_diagnosis owl:equivalentClass roo:C100003.
         
+    db:triplifier_test_HN_Maastricht.yearsClass owl:equivalentClass db:triplifier_test_HN_Maastricht.age_at_diagnosis.
+        
     db:triplifier_test_HN_Maastricht.performance_status_ecog owl:equivalentClass roo:whostatus.
 
 	db:triplifier_test_HN_Maastricht.overall_hpv_p16_status owl:equivalentClass ncit:C128839.
@@ -117,6 +119,7 @@ INSERT {
 	db:triplifier_test_HN_Maastricht.distant_metastases_in_days owl:equivalentClass roo:metastasisdays.
         
     dbo:has_value owl:sameAs roo:P100042.    #has_value
+       
         
     } 
     
@@ -127,13 +130,18 @@ WHERE
 {
     ?tablerow rdf:type db:triplifier_test_HN_Maastricht.
     
-	?tablerow dbo:has_column ?patientID, ?gender, ?age, ?tumour, ?whostatus, ?hpv, ?tstage, ?nstage, ?mstage, ?ajcc, ?asa, ?surgery, ?chemo, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?survival, ?overallsurvivaldays, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasis, ?metastasisdays.
+	?tablerow dbo:has_column ?patientID, ?gender, ?age, ?tumour, ?whostatus, ?hpv, ?tstage, ?nstage, ?mstage, ?ajcc, ?asa, ?surgery, ?chemo, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?survival, ?overallsurvivaldays, 
+?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasis, ?metastasisdays.
 	
     ?patientID rdf:type db:triplifier_test_HN_Maastricht.id. 
     
     ?gender rdf:type db:triplifier_test_HN_Maastricht.biological_sex.
     
     ?age rdf:type db:triplifier_test_HN_Maastricht.age_at_diagnosis.
+    
+    ?years rdf:type db:triplifier_test_HN_Maastricht.yearsClass.
+    
+    ?years rdfs:label "Years".
     
     ?tumour rdf:type db:triplifier_test_HN_Maastricht.index_tumour_location.
     
@@ -167,7 +175,7 @@ WHERE
         
     ?localrecurrence rdf:type db:triplifier_test_HN_Maastricht.event_local_recurrence.
         
-    ?localrecurrencedays rdf:type db:triplifier_test_HN_Maastricht.locoregional_recurrence_in_days.
+    ?localrecurrencedays rdf:type db:triplifier_test_HN_Maastricht.local_recurrence_in_days.
     
     ?regionalrecurrence rdf:type db:triplifier_test_HN_Maastricht.event_locoregional_recurrence.
     
