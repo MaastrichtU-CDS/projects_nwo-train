@@ -44,8 +44,36 @@ INSERT {
         
      db:triplifier_test_HN_Maastricht.neoplasm roo:P100022 ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasisdays.  #has_finding
         
+     ?localrecurrencedays roo:P100027 db:triplifier_test_HN_Maastricht.dayClass.
+        
+     ?regionalrecurrencedays roo:P100027 db:triplifier_test_HN_Maastricht.dayClass.
+        
+     ?metastasisdays roo:P100027 db:triplifier_test_HN_Maastricht.dayClass.
+        
+     db:triplifier_test_HN_Maastricht.neoplasm roo:P100403 db:triplifier_test_HN_Maastricht.radiotherapy. #treated_by 
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy roo:P100027 ?rttotaldays. #has_unit
+        
+     ?rttotaldays roo:P100027 db:triplifier_test_HN_Maastricht.dayClass.
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy roo:P100023 ?graytotaldose. #has_dose
+        
+     ?graytotaldose roo:P100027 db:triplifier_test_HN_Maastricht.Gray.
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy roo:P100214 ?graydoseperfraction.   #has_dose_per_fraction
+     
+     ?graydoseperfraction roo:P100027 db:triplifier_test_HN_Maastricht.Gray.
+      
      ?tablerow roo:P100403 ?surgery.     #treated_by
      
+     ?tablerow roo:P100254 ?survival.    #has_death_finding 
+        
+     ?tablerow roo:has ?overallsurvivaldays.
+        
+     ?overallsurvivaldays roo:P100027 db:triplifier_test_HN_Maastricht.dayClass.
+        
+     ?tablerow roo:C94626 ?chemo.        #chemo_administered
+      
         
      db:triplifier_test_HN_Maastricht owl:equivalentClass ncit:C16960.
         
@@ -60,6 +88,18 @@ INSERT {
      db:triplifier_test_HN_Maastricht.yearClass owl:equivalentClass ncit:C29848.
         
      db:triplifier_test_HN_Maastricht.yearClass rdfs:label "Years".
+      
+     db:triplifier_test_HN_Maastricht.dayClass rdf:type owl:Class.
+        
+     db:triplifier_test_HN_Maastricht.dayClass owl:equivalentClass ncit:C25301.
+     
+     db:triplifier_test_HN_Maastricht.dayClass rdfs:label "Days".
+        
+     db:triplifier_test_HN_Maastricht.Gray rdf:type owl:Class.
+        
+     db:triplifier_test_HN_Maastricht.Gray owl:equivalentClass ncit:C18063.
+     
+     db:triplifier_test_HN_Maastricht.Gray rdfs:label "Gy".
         
      db:triplifier_test_HN_Maastricht.overall_hpv_p16_status owl:equivalentClass ncit:C128839.
         
@@ -76,6 +116,12 @@ INSERT {
      db:triplifier_test_HN_Maastricht.neoplasm owl:equivalentClass ncit:C3262.
         
      db:triplifier_test_HN_Maastricht.neoplasm rdfs:label "Neoplasm".
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy rdf:type owl:Class.
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy owl:equivalentClass ncit:C15313.
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy rdfs:label "Radiotherapy".
       
      db:triplifier_test_HN_Maastricht.clin_t owl:equivalentClass ncit:C48885.
      
@@ -100,6 +146,12 @@ INSERT {
      db:triplifier_test_HN_Maastricht.event_distant_metastases owl:equivalentClass ncit:C19151.
                
      db:triplifier_test_HN_Maastricht.distant_metastases_in_days owl:equivalentClass roo:metastasisdays.
+        
+     db:triplifier_test_HN_Maastricht.event_overall_survival owl:equivalentClass ncit:C25717.
+
+	 db:triplifier_test_HN_Maastricht.overall_survival_in_days owl:equivalentClass roo:overallsurvivaldays.
+        
+     db:triplifier_test_HN_Maastricht.chemotherapy_given owl:equivalentClass ncit:C94626.
       
      dbo:has_value owl:sameAs roo:P100042.    #has_value
        
