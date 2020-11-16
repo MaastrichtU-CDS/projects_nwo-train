@@ -1,0 +1,60 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX map: <http://172.20.10.14/rdf/data/triplifier_test_HN_Maastricht/>
+
+INSERT  
+    
+    {
+    
+     db:triplifier_test_HN_Maastricht.years rdf:type owl:Class.  
+   
+     db:triplifier_test_HN_Maastricht.years rdfs:label "Years".
+    
+     db:triplifier_test_HN_Maastricht.days rdf:type owl:Class.
+    
+     db:triplifier_test_HN_Maastricht.days rdfs:label "Days".
+    
+     db:triplifier_test_HN_Maastricht.Gray rdf:type owl:Class. 
+  
+     db:triplifier_test_HN_Maastricht.Gray rdfs:label "Gy".
+   
+     db:triplifier_test_HN_Maastricht.radiotherapyClass rdf:type owl:Class.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapyClass dbo:table db:triplifier_test_HN_Maastricht.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapyClass rdfs:subClassOf dbo:ColumnCell.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapyClass rdfs:label "Radiotherapy".
+     
+     db:triplifier_test_HN_Maastricht.neoplasmClass rdf:type owl:Class. 
+     
+     db:triplifier_test_HN_Maastricht.neoplasmClass dbo:table db:triplifier_test_HN_Maastricht.
+    
+     db:triplifier_test_HN_Maastricht.neoplasmClass rdfs:subClassOf dbo:ColumnCell.
+        
+     db:triplifier_test_HN_Maastricht.neoplasmClass rdfs:label "Neoplasm".
+    
+     ?tablerow dbo:has_column ?neoplasm, ?radiotherapy.
+    
+     ?neoplasm rdf:type db:triplifier_test_HN_Maastricht.neoplasmClass.
+    
+     ?radiotherapy rdf:type db:triplifier_test_HN_Maastricht.radiotherapyClass.
+  
+}
+
+where 
+{
+     BIND(IRI(CONCAT(str(?tablerow), "/neoplasm")) as ?neoplasm).
+    
+     BIND(IRI(CONCAT(str(?tablerow), "/radiotherapy")) as ?radiotherapy).
+    
+     ?tablerow rdf:type db:triplifier_test_HN_Maastricht.
+   
+}
+
+
