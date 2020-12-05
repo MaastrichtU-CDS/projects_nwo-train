@@ -6,7 +6,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-DELETE { ?tablerow dbo:has_column ?patientID, ?gender, ?age, ?hpv, ?asa, ?whostatus, ?tstage, ?nstage, ?mstage, ?ajcc, ?tumour, ?metastasis, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasisdays, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?surgery, ?survival, ?overallsurvivaldays, ?chemo, ?neoplasm, ?radiotherapy. }
+DELETE { ?tablerow dbo:has_column ?patientID, ?gender, ?age, ?hpv, ?asa, ?whostatus, ?tstage, ?nstage, ?mstage, ?ajcc, ?tumour, ?metastasis, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasisdays, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?rtfractions, ?surgery, ?survival, ?overallsurvivaldays, ?chemo, ?neoplasm, ?radiotherapy, ?eventrecurrence, ?eventrecurrencedays }
 
 INSERT 
 {
@@ -38,7 +38,7 @@ INSERT
         
      ?neoplasm roo:P10032 ?metastasis. 	 #has_metastasis
         
-     ?neoplasm roo:P100022 ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasisdays.  #has_finding
+     ?neoplasm roo:P100022 ?eventrecurrence, ?eventrecurrencedays, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasisdays.  #has_finding
         
      ?localrecurrencedays roo:P100027 db:triplifier_test_HN_Maastricht.days.
         
@@ -59,6 +59,8 @@ INSERT
      ?radiotherapy roo:P100214 ?graydoseperfraction.   #has_dose_per_fraction
      
      ?graydoseperfraction roo:P100027 db:triplifier_test_HN_Maastricht.Gray.
+    
+     ?radiotherapy roo:has ?rtfractions.
       
      ?tablerow roo:P100403 ?surgery.     #treated_by
      
@@ -96,6 +98,10 @@ INSERT
      db:triplifier_test_HN_Maastricht.cancer_surgery_performed owl:equivalentClass ncit:C17173.
       
      db:triplifier_test_HN_Maastricht.index_tumour_location owl:equivalentClass ncit:C3263.
+    
+     db:triplifier_test_HN_Maastricht.event_recurrence_metastatic_free_survival owl:equivalentClass roo:eventrecurrence.
+    
+     db:triplifier_test_HN_Maastricht.recurrence_metastatic_free_survival_in_days owl:equivalentClass roo:eventrecurrencedays.
                 
      db:triplifier_test_HN_Maastricht.event_local_recurrence owl:equivalentClass roo:localrecurrence.
 
@@ -114,6 +120,14 @@ INSERT
 	 db:triplifier_test_HN_Maastricht.overall_survival_in_days owl:equivalentClass roo:overallsurvivaldays.
         
      db:triplifier_test_HN_Maastricht.chemotherapy_given owl:equivalentClass ncit:C94626.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapy_total_treat_time owl:equivalentClass roo:rttotaldays.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapy_refgydose_total_highriskgtv owl:equivalentClass roo:graytotaldose.
+        
+     db:triplifier_test_HN_Maastricht.radiotherapy_refgydose_perfraction_highriskgtv owl:equivalentClass roo:graydoseperfraction.
+    
+     db:triplifier_test_HN_Maastricht.radiotherapy_number_fractions_highriskgtv owl:equivalentClass roo:rttotalfraction.
    
      db:triplifier_test_HN_Maastricht.years owl:equivalentClass ncit:C29848.
       
@@ -137,7 +151,7 @@ WHERE
 {  
     ?tablerow rdf:type db:triplifier_test_HN_Maastricht.
     
-	?tablerow dbo:has_column ?patientID, ?gender, ?age, ?tumour, ?whostatus, ?hpv, ?tstage, ?nstage, ?mstage, ?ajcc, ?asa, ?surgery, ?chemo, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?survival, ?overallsurvivaldays, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasis, ?metastasisdays, ?neoplasm, ?radiotherapy.
+	?tablerow dbo:has_column ?patientID, ?gender, ?age, ?tumour, ?whostatus, ?hpv, ?tstage, ?nstage, ?mstage, ?ajcc, ?asa, ?surgery, ?chemo, ?rttotaldays, ?graytotaldose, ?graydoseperfraction, ?survival, ?overallsurvivaldays, ?localrecurrence, ?localrecurrencedays, ?regionalrecurrence, ?regionalrecurrencedays, ?metastasis, ?metastasisdays, ?neoplasm, ?radiotherapy, ?rtfractions, ?eventrecurrence, ?eventrecurrencedays.
           
     ?neoplasm rdf:type db:triplifier_test_HN_Maastricht.neoplasmClass.
     
@@ -173,11 +187,17 @@ WHERE
         
     ?graytotaldose rdf:type db:triplifier_test_HN_Maastricht.radiotherapy_refgydose_total_highriskgtv.
         
-    ?graydoseperfraction rdf:type db:triplifier_test_HN_Maastricht.radiotherapy_number_fractions_highriskgtv.
+    ?graydoseperfraction rdf:type db:triplifier_test_HN_Maastricht.radiotherapy_refgydose_perfraction_highriskgtv.
+    
+    ?rtfractions rdf:type db:triplifier_test_HN_Maastricht.radiotherapy_number_fractions_highriskgtv.
         
     ?survival rdf:type db:triplifier_test_HN_Maastricht.event_overall_survival.
         
     ?overallsurvivaldays rdf:type db:triplifier_test_HN_Maastricht.overall_survival_in_days.
+    
+    ?eventrecurrence rdf:type db:triplifier_test_HN_Maastricht.event_recurrence_metastatic_free_survival.
+        
+    ?eventrecurrencedays rdf:type db:triplifier_test_HN_Maastricht.recurrence_metastatic_free_survival_in_days.
         
     ?localrecurrence rdf:type db:triplifier_test_HN_Maastricht.event_local_recurrence.
         
