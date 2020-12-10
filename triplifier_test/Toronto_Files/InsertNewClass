@@ -27,7 +27,7 @@ INSERT
     
      db:triplifier_test_HN_Toronto.radiotherapyClass dbo:table db:triplifier_test_HN_Toronto.
     
-     db:triplifier_test_HN_Toronto.radiotherapyClass rdfs:subClassOf dbo:ColumnCell.
+     # db:triplifier_test_HN_Toronto.radiotherapyClass rdfs:subClassOf dbo:ColumnCell.
     
      db:triplifier_test_HN_Toronto.radiotherapyClass rdfs:label "Radiotherapy".
      
@@ -35,7 +35,7 @@ INSERT
      
      db:triplifier_test_HN_Toronto.neoplasmClass dbo:table db:triplifier_test_HN_Toronto.
     
-     db:triplifier_test_HN_Maastricht.neoplasmClass rdfs:subClassOf dbo:ColumnCell.
+     # db:triplifier_test_HN_Maastricht.neoplasmClass rdfs:subClassOf dbo:ColumnCell.
         
      db:triplifier_test_HN_Toronto.neoplasmClass rdfs:label "Neoplasm".
     
