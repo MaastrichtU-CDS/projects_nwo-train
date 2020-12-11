@@ -1,0 +1,43 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+DELETE { ?tablerowHous dbo:has_column ?patientIDHous, ?ageHous. }
+
+INSERT 
+{
+	 ?tablerowHous roo:P100061 ?patientIDHous.   #has_identifier
+     
+     ?tablerowHous roo:hasage ?ageHous.  
+    
+     ?ageHous roo:P100027 db:triplifier_test_HN_Houston.years.	
+    
+     db:triplifier_test_HN_Houston owl:equivalentClass ncit:C16960.
+        
+     db:triplifier_test_HN_Houston.TCIA_Radiomics_ID owl:equivalentClass ncit:C25364.
+            
+     db:triplifier_test_HN_Houston.Age_at_Diag owl:equivalentClass roo:C100003.
+    
+     dbo:has_value owl:sameAs roo:P100042.    #has_value
+    
+     dbo:has_unit owl:sameAs roo:P100047.    #has_value
+       
+    } 
+  
+
+WHERE
+
+{  
+    ?tablerowHous rdf:type db:triplifier_test_HN_Houston.
+    
+	?tablerowHous dbo:has_column ?patientIDHous, ?ageHous.
+    
+    ?patientIDHous rdf:type db:triplifier_test_HN_Houston.TCIA_Radiomics_ID. 
+ 
+    ?ageHous rdf:type db:triplifier_test_HN_Houston.Age_at_Diag.
+   
+}
