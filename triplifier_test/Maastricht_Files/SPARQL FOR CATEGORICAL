@@ -1,0 +1,31 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?gendervalue (COUNT(?gendervalue) as ?gendernumber)
+#?tstagevalue (COUNT(?tstagevalue) as ?tstagenumber) 
+#?nstagevalue (COUNT(?nstagevalue) as ?nstagenumber) 
+#?mstagevalue (COUNT(?mstagevalue) as ?mstagenumber) 
+#?survivalvalue (COUNT(?survivalvalue) as ?survivalnumber)
+
+WHERE 
+{
+  
+   ?tablerow roo:P100018 ?gender.
+ #  ?tablerow roo:P100029 ?neoplasm.
+ #  ?neoplasm roo:P100244 ?tstage. 	 
+ #  ?neoplasm roo:P100242 ?nstage. 	 
+ #  ?neoplasm roo:P100241 ?mstage.
+ #  ?tablerow roo:P100254 ?survival.
+ 
+   ?gender roo:P100042 ?gendervalue.
+ #  ?tstage roo:P100042 ?tstagevalue.
+ #  ?nstage roo:P100042 ?nstagevalue. 
+ #  ?mstage roo:P100042 ?mstagevalue.
+ #  ?survival roo:P100042 ?survivalvalue.
+   
+} groupby(?gendervalue)
