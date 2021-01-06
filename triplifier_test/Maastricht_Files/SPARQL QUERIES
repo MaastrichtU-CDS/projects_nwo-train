@@ -6,18 +6,18 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT ?x ?patientID ?gender
+SELECT ?tablerow ?patient ?IDvalue ?agevalue ?gendervalue
 
 WHERE 
-
 {
-    
-?patient roo:P100061 ?ID;
-    	 roo:P100018 ?g.
-
- ?ID roo:P100042 ?patientID.
- 
- ?g roo:P100042 ?gender.
-
-
-}
+   ?tablerow roo:P100061 ?patientID.
+   ?tablerow roo:hasage ?age. 
+   ?tablerow roo:P100018 ?gender.
+  
+   ?patientID roo:P100042 ?IDvalue. 
+   ?age roo:P100042 ?agevalue.
+   ?gender roo:P100042 ?gendervalue.
+  
+    BIND(strafter(str(?tablerow), "http://172.20.10.14/rdf/data/") AS ?patient)
+	
+} LIMIT 10
