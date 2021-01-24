@@ -1,3 +1,5 @@
+#GET_VALUES
+
 PREFIX db: <http://localhost/rdf/ontology/>
 PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
 PREFIX roo: <http://www.cancerdata.org/roo/>
@@ -21,3 +23,26 @@ WHERE
     BIND(strafter(str(?tablerow), "http://172.20.10.14/rdf/data/") AS ?patient)
 	
 } LIMIT 10
+
+
+
+
+#GET_COLUMNS
+
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (group_concat(distinct ?s1; separator = ', \n') as ?Columns) ?NCIT_Code
+WHERE 
+{
+ ?s owl:equivalentClass ?o
+ FILTER regex(str(?o), ("http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"))
+ BIND(strafter(str(?o), "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#") AS ?NCIT_Code)
+ BIND(strafter(str(?s), "http://localhost/rdf/ontology/") AS ?s1)
+} 
+group by (?NCIT_Code)
