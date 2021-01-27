@@ -6,7 +6,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-DELETE { ?tablerowTor dbo:has_column ?patientIDTor, ?genderTor, ?ageTor, ?hpvTor, ?whostatusTor, ?tstageTor, ?nstageTor, ?mstageTor, ?tumourTor, ?rttotaldaysTor, ?graytotaldoseTor, ?graydoseperfractionTor, ?chemoTor, ?followupdays, ?neoplasmTor, ?radiotherapyTor. }
+DELETE { ?tablerowTor dbo:has_column ?patientIDTor, ?genderTor, ?ageTor, ?hpvTor, ?whostatusTor, ?tstageTor, ?nstageTor, ?mstageTor, ?tumourTor, ?rttotaldaysTor, ?graytotaldoseTor, ?graydoseperfractionTor, ?chemoTor, ?followupdays, ?neoplasmTor, ?radiotherapyTor, ?survivalTor, ?metastasisTor, ?localrecurrenceTor, ?localrecurrencedaysTor, ?regionalrecurrenceTor, ?regionalrecurrencedaysTor, ?metastasisdaysTor.
+}
 
 INSERT 
 {
@@ -14,7 +15,7 @@ INSERT
         
      ?tablerowTor roo:P100018 ?genderTor.		 #has_biological_sex
         
-     ?tablerowTor roo:hasage ?ageTor. 
+     ?tablerowTor roo:hasage ?ageTor.  
     
      ?ageTor roo:P100027 db:triplifier_test_HN_Toronto.years.	
         
@@ -35,10 +36,20 @@ INSERT
      ?neoplasmTor roo:P100241 ?mstageTor. 	 #has_M_stage
            
      ?neoplasmTor roo:P100202 ?tumourTor.		 #tumourSite
+    
+     ?neoplasmTor roo:P10032 ?metastasisTor. 	 #has_metastasis
+        
+     ?neoplasmTor roo:P100022 ?localrecurrenceTor, ?localrecurrencedaysTor, ?regionalrecurrenceTor, ?regionalrecurrencedaysTor, ?metastasisdaysTor.  #has_finding
+        
+     ?localrecurrencedaysTor roo:P100027 db:triplifier_test_HN_Toronto.days.
+        
+     ?regionalrecurrencedaysTor roo:P100027 db:triplifier_test_HN_Toronto.days.
+        
+     ?metastasisdaysTor roo:P100027 db:triplifier_test_HN_Toronto.days.
    
      ?tablerowTor roo:P100403 ?radiotherapyTor. #treated_by 
         
-     ?radiotherapyTor roo:P100027 ?rttotaldaysTor. #has_unit
+     ?radiotherapyTor roo:P100027 ?rttotaldaysTor. 
         
      ?rttotaldaysTor roo:P100027 db:triplifier_test_HN_Toronto.days.
         
@@ -51,6 +62,8 @@ INSERT
      ?graydoseperfractionTor roo:P100027 db:triplifier_test_HN_Toronto.Gray.
   
      ?tablerowTor roo:C94626 ?chemoTor.        #chemo_administered
+    
+     ?tablerowTor roo:P100254 ?survivalTor.    #has_death_finding
       
         
      db:triplifier_test_HN_Toronto owl:equivalentClass ncit:C16960.
@@ -82,6 +95,18 @@ INSERT
      db:triplifier_test_HN_Toronto.Dose_\(gy\) owl:equivalentClass roo:graytotaldose.
         
      db:triplifier_test_HN_Toronto.Number_of_fractions owl:equivalentClass roo:graydoseperfraction.
+    
+     db:triplifier_test_HN_Toronto.Status owl:equivalentClass ncit:C25717.
+    
+     db:triplifier_test_HN_Toronto.Local_Failure owl:equivalentClass roo:localrecurrence.
+                db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__local_failure_\(days\) owl:equivalentClass roo:localrecurrencedays.
+
+	 db:triplifier_test_HN_Toronto.Regional_Failure owl:equivalentClass roo:regionalrecurrence.
+
+ db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__regional_failure_\(days\) owl:equivalentClass roo:regionalrecurrencedays.
+        
+     db:triplifier_test_HN_Toronto.Distant_Failure owl:equivalentClass ncit:C19151.
+     db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__distant_failure_\(days\) owl:equivalentClass roo:metastasisdays.
    
      db:triplifier_test_HN_Toronto.years owl:equivalentClass ncit:C29848.
       
@@ -105,7 +130,7 @@ WHERE
 {  
     ?tablerowTor rdf:type db:triplifier_test_HN_Toronto.
     
-	?tablerowTor dbo:has_column ?patientIDTor, ?genderTor, ?ageTor, ?hpvTor, ?whostatusTor, ?tstageTor, ?nstageTor, ?mstageTor, ?tumourTor, ?rttotaldaysTor, ?graytotaldoseTor, ?graydoseperfractionTor, ?chemoTor, ?followupdays, ?neoplasmTor, ?radiotherapyTor.
+	?tablerowTor dbo:has_column ?patientIDTor, ?genderTor, ?ageTor, ?hpvTor, ?whostatusTor, ?tstageTor, ?nstageTor, ?mstageTor, ?tumourTor, ?rttotaldaysTor, ?graytotaldoseTor, ?graydoseperfractionTor, ?chemoTor, ?followupdays, ?neoplasmTor, ?radiotherapyTor, ?survivalTor, ?metastasisTor, ?localrecurrenceTor, ?localrecurrencedaysTor, ?regionalrecurrenceTor, ?regionalrecurrencedaysTor, ?metastasisdaysTor.
           
     ?neoplasmTor rdf:type db:triplifier_test_HN_Toronto.neoplasmClass.
     
@@ -121,7 +146,7 @@ WHERE
     
     ?whostatusTor rdf:type db:triplifier_test_HN_Toronto.ECOG_Performance_Status_Scale.
     
-    ?hpvTor rdf:type db:db:triplifier_test_HN_Toronto.HPV_p16_status_\(IHC\).
+    ?hpvTor rdf:type db:triplifier_test_HN_Toronto.HPV_p16_status_\(IHC\).
     
     ?tstageTor rdf:type db:triplifier_test_HN_Toronto.T.
     
@@ -138,5 +163,19 @@ WHERE
     ?graydoseperfractionTor rdf:type db:triplifier_test_HN_Toronto.Number_of_fractions.
         
     ?followupdays rdf:type db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of_last_FU__\(days\).
+    
+    ?survivalTor rdf:type db:triplifier_test_HN_Toronto.Status.
+    
+    ?localrecurrenceTor rdf:type db:triplifier_test_HN_Toronto.Local_Failure.
+        
+    ?localrecurrencedaysTor rdf:type db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__local_failure_\(days\).
+    
+    ?regionalrecurrenceTor rdf:type db:triplifier_test_HN_Toronto.Regional_Failure.
+    
+    ?regionalrecurrencedaysTor rdf:type db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__regional_failure_\(days\).
+        
+    ?metastasisTor rdf:type db:triplifier_test_HN_Toronto.Distant_Failure.
+        
+    ?metastasisdaysTor rdf:type db:triplifier_test_HN_Toronto.Time_interval_from_the_date_of_diagnosis_to_the_date_of__distant_failure_\(days\).
    
 }
