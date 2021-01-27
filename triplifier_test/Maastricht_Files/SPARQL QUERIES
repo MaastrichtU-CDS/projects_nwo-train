@@ -37,12 +37,20 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT (group_concat(distinct ?s1; separator = ', \n') as ?Columns) ?NCIT_Code
+SELECT (group_concat(distinct ?s1; separator = ', \n') as ?Columns) ?Code
 WHERE 
 {
- ?s owl:equivalentClass ?o
- FILTER regex(str(?o), ("http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"))
- BIND(strafter(str(?o), "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#") AS ?NCIT_Code)
- BIND(strafter(str(?s), "http://localhost/rdf/ontology/") AS ?s1)
-} 
-group by (?NCIT_Code)
+    {
+     ?s owl:equivalentClass ?o
+     FILTER regex(str(?o), ("http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"))
+     BIND(strafter(str(?o), "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#") AS ?Code)
+     BIND(strafter(str(?s), "http://localhost/rdf/ontology/") AS ?s1)
+}
+    UNION
+    {
+     ?s owl:equivalentClass ?o
+     FILTER regex(str(?o), ("http://www.cancerdata.org/roo/"))
+     BIND(strafter(str(?o), "http://www.cancerdata.org/roo/") AS ?Code)
+     BIND(strafter(str(?s), "http://localhost/rdf/ontology/") AS ?s1)
+}
+}group by (?Code)
