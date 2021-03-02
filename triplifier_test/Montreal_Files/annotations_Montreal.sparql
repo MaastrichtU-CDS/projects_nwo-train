@@ -1,0 +1,149 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+INSERT 
+{
+     GRAPH <http://annotation.local/>
+    {
+        
+	 ?tablerowMon roo:P100061 ?patientIDMon.   #has_identifier
+        
+     ?tablerowMon roo:P100018 ?genderMon.		 #has_biological_sex
+        
+     ?tablerowMon roo:hasage ?ageMon. 
+    
+     ?ageMon roo:P100027 db:triplifier_test_HN_Montreal.years.	
+        
+     ?tablerowMon roo:P100022 ?hpvMon.		 #has_finding
+   
+     ?tablerowMon roo:P100229 ?followupMon.
+        
+     ?tablerowMon roo:P100029 ?neoplasmMon.
+   
+     ?neoplasmMon roo:P100244 ?tstageMon. 	 #has_T_stage
+        
+     ?neoplasmMon roo:P100242 ?nstageMon. 	 #has_N_stage
+      
+     ?neoplasmMon roo:P100241 ?mstageMon. 	 #has_M_stage
+    
+     ?neoplasmMon roo:P100202 ?tumourMon.		 #tumourSite
+        
+     ?neoplasmMon roo:P10032 ?metastasisMon. 	 #has_metastasis
+        
+     ?neoplasmMon roo:P100022 ?regionalrecurrenceMon, ?regionalrecurrencedaysMon, ?metastasisdaysMon.  #has_finding
+    
+     ?regionalrecurrencedaysMon roo:P100027 db:triplifier_test_HN_Montreal.days.
+        
+     ?metastasisdaysMon roo:P100027 db:triplifier_test_HN_Montreal.days.
+        
+     ?tablerowMon roo:P100403 ?radiotherapyMon. #treated_by 
+    
+     ?tablerowMon roo:P100403 ?surgeryMon.     #treated_by
+     
+     ?tablerowMon roo:P100254 ?survivalMon.    #has_death_finding 
+        
+     ?tablerowMon roo:has ?overallsurvivaldaysMon.
+        
+     ?overallsurvivaldaysMon roo:P100027 db:triplifier_test_HN_Montreal.days.
+    
+    
+     db:triplifier_test_HN_Montreal owl:equivalentClass ncit:C16960.
+        
+     db:triplifier_test_HN_Montreal.Patient_\# owl:equivalentClass ncit:C25364.
+        
+     db:triplifier_test_HN_Montreal.Sex owl:equivalentClass ncit:C28421.
+        
+     db:triplifier_test_HN_Montreal.Age owl:equivalentClass roo:C100003.
+    
+     db:triplifier_test_HN_Montreal.HPV_status owl:equivalentClass ncit:C128839.
+    
+     db:triplifier_test_HN_Montreal.Time_diagnosis_to_last_follow-up\(days\) owl:equivalentClass roo:followupdays.
+        
+     db:triplifier_test_HN_Montreal.T-stage owl:equivalentClass ncit:C48885.
+     
+     db:triplifier_test_HN_Montreal.N-stage owl:equivalentClass ncit:C48884.
+
+	 db:triplifier_test_HN_Montreal.M-stage owl:equivalentClass ncit:C48883.
+    
+     db:triplifier_test_HN_Montreal.Surgery owl:equivalentClass ncit:C17173.
+      
+     db:triplifier_test_HN_Montreal.Primary_Site owl:equivalentClass ncit:C3263.
+    
+	 db:triplifier_test_HN_Montreal.Locoregional owl:equivalentClass roo:regionalrecurrence.
+
+	 db:triplifier_test_HN_Montreal.Time_diagnosis_to_LR_\(days\) owl:equivalentClass roo:regionalrecurrencedays.
+        
+     db:triplifier_test_HN_Montreal.Distant owl:equivalentClass ncit:C19151.
+               
+     db:triplifier_test_HN_Montreal.Time_diagnosis_to_DM_\(days\) owl:equivalentClass roo:metastasisdays.
+        
+     db:triplifier_test_HN_Montreal.Death owl:equivalentClass ncit:C25717.
+
+	 db:triplifier_test_HN_Montreal.Time_diagnosis_to_Death_\(days\) owl:equivalentClass roo:overallsurvivaldays.
+
+     db:triplifier_test_HN_Montreal.years owl:equivalentClass ncit:C29848.
+      
+     db:triplifier_test_HN_Montreal.days owl:equivalentClass ncit:C25301. 
+    
+     db:triplifier_test_HN_Montreal.Gray owl:equivalentClass ncit:C18063.
+    
+     db:triplifier_test_HN_Montreal.neoplasmClass owl:equivalentClass ncit:C3262.
+    
+     db:triplifier_test_HN_Montreal.radiotherapyClass owl:equivalentClass ncit:C15313.
+    
+     dbo:has_value owl:sameAs roo:P100042.    #has_value
+    
+     dbo:has_unit owl:sameAs roo:P100047.    #has_value
+       
+    }  
+}
+
+WHERE
+
+{  
+    ?tablerowMon rdf:type db:triplifier_test_HN_Montreal.
+    
+	?tablerowMon dbo:has_column ?patientIDMon, ?genderMon, ?ageMon, ?tumourMon, ?hpvMon, ?tstageMon, ?nstageMon, ?mstageMon, ?surgeryMon, ?survivalMon, ?overallsurvivaldaysMon, ?regionalrecurrenceMon, ?regionalrecurrencedaysMon, ?metastasisMon, ?metastasisdaysMon, ?followupMon, ?neoplasmMon, ?radiotherapyMon.
+          
+    ?neoplasmMon rdf:type db:triplifier_test_HN_Montreal.neoplasmClass.
+    
+    ?radiotherapyMon rdf:type db:triplifier_test_HN_Montreal.radiotherapyClass. 
+    
+    ?patientIDMon rdf:type db:triplifier_test_HN_Montreal.Patient_\#. 
+ 
+    ?genderMon rdf:type db:triplifier_test_HN_Montreal.Sex.
+    
+    ?ageMon rdf:type db:triplifier_test_HN_Montreal.Age.
+    
+    ?tumourMon rdf:type db:triplifier_test_HN_Montreal.Primary_Site.
+    
+    ?hpvMon rdf:type db:triplifier_test_HN_Montreal.HPV_status.
+    
+    ?followupMon rdf:type db:triplifier_test_HN_Montreal.Time_diagnosis_to_last_follow-up\(days\).
+    
+    ?tstageMon rdf:type db:triplifier_test_HN_Montreal.T-stage.
+    
+    ?nstageMon rdf:type db:triplifier_test_HN_Montreal.N-stage.
+    
+    ?mstageMon rdf:type db:triplifier_test_HN_Montreal.M-stage.
+  
+    ?surgeryMon rdf:type db:triplifier_test_HN_Montreal.Surgery.
+ 
+    ?survivalMon rdf:type db:triplifier_test_HN_Montreal.Death.
+        
+    ?overallsurvivaldaysMon rdf:type db:triplifier_test_HN_Montreal.Time_diagnosis_to_Death_\(days\).
+  
+    ?regionalrecurrenceMon rdf:type db:triplifier_test_HN_Montreal.Locoregional.
+    
+    ?regionalrecurrencedaysMon rdf:type db:triplifier_test_HN_Montreal.Time_diagnosis_to_LR_\(days\).
+        
+    ?metastasisMon rdf:type db:triplifier_test_HN_Montreal.Distant.
+        
+    ?metastasisdaysMon rdf:type db:triplifier_test_HN_Montreal.Time_diagnosis_to_DM_\(days\).
+ 
+}
