@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:db="http://localhost/rdf/ontology/"
+	xmlns:dbo="http://um-cds/ontologies/databaseontology/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/TableRow">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ColumnCell">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/PrimaryKey">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ForeignKey">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_column">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_value">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/has_unit">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/ColumnReference">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/table">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<range xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/catalog">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/schema">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://um-cds/ontologies/databaseontology/column">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+	<domain xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/TableRow"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal</label>
+	<dbo:table>triplifier_test_HN_Montreal</dbo:table>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Patient_#">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Patient #</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Patient #</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Sex">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Sex</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Sex</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Age">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Age</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Age</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Primary_Site">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Primary Site</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Primary Site</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.T-stage">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.T-stage</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>T-stage</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.N-stage">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.N-stage</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>N-stage</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.M-stage">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.M-stage</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>M-stage</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.TNM_group_stage">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.TNM group stage</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>TNM group stage</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.HPV_status">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.HPV status</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>HPV status</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_to_diagnosis_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time to diagnosis (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time to diagnosis (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_PET_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to PET (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to PET (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_CT_sim_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to CT sim (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to CT sim (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_start_treatment_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to start treatment (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to start treatment (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_end_treatment_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to end treatment (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to end treatment (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Therapy">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Therapy</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Therapy</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Surgery">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Surgery</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Surgery</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_last_follow-up(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to last follow-up(days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to last follow-up(days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Locoregional">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Locoregional</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Locoregional</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Distant">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Distant</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Distant</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Death">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Death</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Death</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_LR_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to LR (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to LR (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_DM_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to DM (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to DM (days)</dbo:column>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://localhost/rdf/ontology/triplifier_test_HN_Montreal.Time_diagnosis_to_Death_(days)">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<subClassOf xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://um-cds/ontologies/databaseontology/ColumnCell"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">triplifier_test_HN_Montreal.Time diagnosis to Death (days)</label>
+	<dbo:table rdf:resource="http://localhost/rdf/ontology/triplifier_test_HN_Montreal"/>
+	<dbo:column>Time diagnosis to Death (days)</dbo:column>
+</rdf:Description>
+
+</rdf:RDF>
