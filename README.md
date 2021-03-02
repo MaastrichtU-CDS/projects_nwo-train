@@ -25,6 +25,8 @@ Set up docker with the instructions from [docs.docker.com](docs.docker.com).
 
 Check the installation is fine by running the simple hello-docker application.
 
+Remember to install the docker-compose modue as well - it is missed from some of the install instructions.
+
 
 ### python
 
