@@ -1,0 +1,186 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT 
+{
+    GRAPH <http://annotation.local/>
+    {
+        
+	 ?tablerowHous roo:P100061 ?patientIDHous.   #has_identifier
+     
+     ?tablerowHous roo:hasage ?ageHous.  
+    
+     ?ageHous roo:P100027 db:triplifier_test_HN_Houston.years.	
+ 
+     ?tablerowHous roo:P100018 ?genderHous.
+    
+     ?tablerowHous roo:P100022 ?hpvHous.
+    
+     ?tablerowHous roo:P100029 ?neoplasmHous.
+     
+     ?neoplasmHous roo:P100219 ?ajccHous.
+    
+     ?neoplasmHous roo:P100244 ?tstageHous. 	
+        
+     ?neoplasmHous roo:P100242 ?nstageHous. 	
+        
+     ?neoplasmHous roo:P100202 ?tumourHous.
+    
+     ?neoplasmHous roo:P10032 ?metastasisHous. 	 
+    
+     ?neoplasmHous roo:P100022 ?localrecurrenceHous, ?localrecurrencedaysHous, ?regionalrecurrenceHous, ?regionalrecurrencedaysHous, ?metastasisdaysHous. 
+        
+     ?localrecurrencedaysHous roo:P100027 db:triplifier_test_HN_Houston.days.
+        
+     ?regionalrecurrencedaysHous roo:P100027 db:triplifier_test_HN_Houston.days.
+        
+     ?metastasisdaysHous roo:P100027 db:triplifier_test_HN_Houston.days.
+        
+     ?tablerowHous roo:P100403 ?radiotherapyHous. 
+        
+     ?radiotherapyHous roo:P100027 ?rttotaldaysHous. 
+        
+     ?rttotaldaysHous roo:P100027 db:triplifier_test_HN_Houston.days.
+        
+     ?radiotherapyHous roo:P100023 ?graytotaldoseHous.
+        
+     ?graytotaldoseHous roo:P100027 db:triplifier_test_HN_Houston.Gray.
+        
+     ?radiotherapyHous roo:P100214 ?graydoseperfractionHous.
+     
+     ?graydoseperfractionHous roo:P100027 db:triplifier_test_HN_Houston.Gray.
+    
+     ?radiotherapyHous roo:has ?rtfractionsHous.
+    
+     ?tablerowHous roo:P100254 ?survivalHous.
+        
+     ?tablerowHous roo:has ?overallsurvivaldaysHous.
+    
+     ?tablerowHous roo:P100229 ?followupHous.
+    
+     ?followupHous roo:P100027 db:triplifier_test_HN_Houston.days.
+      
+    
+    
+     db:triplifier_test_HN_Houston owl:equivalentClass ncit:C16960.
+        
+     db:triplifier_test_HN_Houston.TCIA_Radiomics_ID owl:equivalentClass ncit:C25364.
+            
+     db:triplifier_test_HN_Houston.Age_at_Diag owl:equivalentClass roo:C100003.
+    
+     db:triplifier_test_HN_Houston.Gender owl:equivalentClass ncit:C28421.
+    
+     db:triplifier_test_HN_Houston.HPV_Status owl:equivalentClass ncit:C128839.
+    
+     db:triplifier_test_HN_Houston.AJCC_Stage_\(7th_edition\) owl:equivalentClass roo:C100052.
+    
+     db:triplifier_test_HN_Houston.Cancer_subsite_of_origin owl:equivalentClass ncit:C3263.
+    
+     db:triplifier_test_HN_Houston.T-category owl:equivalentClass ncit:C48885.
+     
+     db:triplifier_test_HN_Houston.N-category owl:equivalentClass ncit:C48884.
+    
+     db:triplifier_test_HN_Houston.Radiation_Treatment_duration owl:equivalentClass roo:rttotaldays.
+    
+     db:triplifier_test_HN_Houston.Total_prescribed_Radiation_treatment_dose owl:equivalentClass roo:graytotaldose.
+        
+     db:triplifier_test_HN_Houston.Radiation_treatment_dose_per_fraction owl:equivalentClass roo:graydoseperfraction.
+    
+     db:triplifier_test_HN_Houston.Radiation_treatment_number_of_fractions owl:equivalentClass roo:rttotalfraction.
+    
+     db:triplifier_test_HN_Houston.Vital_status owl:equivalentClass ncit:C25717.
+
+	 db:triplifier_test_HN_Houston.Overall_survival_duration owl:equivalentClass roo:overallsurvivaldays.
+    
+     db:triplifier_test_HN_Houston.Local_control owl:equivalentClass roo:localrecurrence.
+
+	 db:triplifier_test_HN_Houston.Local_control_duration owl:equivalentClass roo:localrecurrencedays.
+
+	 db:triplifier_test_HN_Houston.Regional_control owl:equivalentClass roo:regionalrecurrence.
+
+	 db:triplifier_test_HN_Houston.Regional_control_duration owl:equivalentClass roo:regionalrecurrencedays.
+        
+     db:triplifier_test_HN_Houston.Freedom_from_distant_metastasis owl:equivalentClass ncit:C19151.
+               
+     db:triplifier_test_HN_Houston.Freedom_from_distant_metastasis_duration owl:equivalentClass roo:metastasisdays.
+    
+     db:triplifier_test_HN_Houston.Days_to_last_FU owl:equivalentClass roo:followupdays.
+    
+     db:triplifier_test_HN_Houston.years owl:equivalentClass ncit:C29848.
+      
+     db:triplifier_test_HN_Houston.days owl:equivalentClass ncit:C25301. 
+    
+     db:triplifier_test_HN_Houston.Gray owl:equivalentClass ncit:C18063.
+    
+     db:triplifier_test_HN_Houston.neoplasmClass owl:equivalentClass ncit:C3262.
+    
+     db:triplifier_test_HN_Houston.radiotherapyClass owl:equivalentClass ncit:C15313.
+    
+     dbo:has_value owl:sameAs roo:P100042.    #has_value
+    
+     dbo:has_unit owl:sameAs roo:P100047.    #has_value
+       
+    } 
+}
+  
+
+WHERE
+
+{  
+    ?tablerowHous rdf:type db:triplifier_test_HN_Houston.
+    
+	?tablerowHous dbo:has_column ?patientIDHous, ?ageHous, ?genderHous, ?hpvHous, ?ajccHous, ?tumourHous, ?neoplasmHous, ?radiotherapyHous, ?tstageHous, ?nstageHous, ?rttotaldaysHous, ?graytotaldoseHous, ?graydoseperfractionHous, ?rtfractionsHous, ?survivalHous, ?overallsurvivaldaysHous, ?metastasisHous, ?localrecurrenceHous, ?localrecurrencedaysHous, ?regionalrecurrenceHous, ?regionalrecurrencedaysHous, ?metastasisdaysHous, ?followupHous.
+    
+    ?neoplasmHous rdf:type db:triplifier_test_HN_Houston.neoplasmClass.
+    
+    ?radiotherapyHous rdf:type db:triplifier_test_HN_Houston.radiotherapyClass. 
+    
+    ?patientIDHous rdf:type db:triplifier_test_HN_Houston.TCIA_Radiomics_ID. 
+ 
+    ?ageHous rdf:type db:triplifier_test_HN_Houston.Age_at_Diag.
+    
+    ?genderHous rdf:type db:triplifier_test_HN_Houston.Gender.
+    
+    ?hpvHous rdf:type db:triplifier_test_HN_Houston.HPV_Status.
+    
+    ?tumourHous rdf:type db:triplifier_test_HN_Houston.Cancer_subsite_of_origin.
+    
+    ?ajccHous rdf:type db:triplifier_test_HN_Houston.AJCC_Stage_\(7th_edition\).
+    
+    ?tstageHous rdf:type db:triplifier_test_HN_Houston.T-category.
+        
+    ?nstageHous rdf:type db:triplifier_test_HN_Houston.N-category.
+    
+    ?rttotaldaysHous rdf:type db:triplifier_test_HN_Houston.Radiation_Treatment_duration. 
+    
+    ?graytotaldoseHous rdf:type db:triplifier_test_HN_Houston.Total_prescribed_Radiation_treatment_dose.
+            
+    ?graydoseperfractionHous rdf:type db:triplifier_test_HN_Houston.Radiation_treatment_dose_per_fraction.
+    
+    ?rtfractionsHous rdf:type db:triplifier_test_HN_Houston.Radiation_treatment_number_of_fractions.
+    
+    ?survivalHous rdf:type db:triplifier_test_HN_Houston.Vital_status.
+        
+    ?overallsurvivaldaysHous rdf:type db:triplifier_test_HN_Houston.Overall_survival_duration.
+    
+    ?metastasisHous rdf:type db:triplifier_test_HN_Houston.Freedom_from_distant_metastasis.
+     
+    ?localrecurrenceHous rdf:type db:triplifier_test_HN_Houston.Local_control.
+            
+    ?localrecurrencedaysHous rdf:type db:triplifier_test_HN_Houston.Local_control_duration.
+    
+    ?regionalrecurrenceHous rdf:type db:triplifier_test_HN_Houston.Regional_control.
+    
+    ?regionalrecurrencedaysHous rdf:type db:triplifier_test_HN_Houston.Regional_control_duration.
+    
+    ?metastasisdaysHous rdf:type db:triplifier_test_HN_Houston.Freedom_from_distant_metastasis_duration.
+    
+    ?followupHous rdf:type db:triplifier_test_HN_Houston.Days_to_last_FU.
+   
+}
