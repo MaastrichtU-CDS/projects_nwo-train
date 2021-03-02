@@ -1,0 +1,59 @@
+PREFIX db: <http://localhost/rdf/ontology/>
+PREFIX dbo: <http://um-cds/ontologies/databaseontology/>
+PREFIX roo: <http://www.cancerdata.org/roo/>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX map: <http://172.20.10.14/rdf/data/triplifier_test_HN_Maastricht/>
+
+INSERT  
+{
+     GRAPH <http://annotation.local/>
+    {
+      
+     db:triplifier_test_HN_Houston.years rdf:type owl:Class.  
+   
+     db:triplifier_test_HN_Houston.years rdfs:label "Years".
+    
+     db:triplifier_test_HN_Houston.days rdf:type owl:Class.
+    
+     db:triplifier_test_HN_Houston.days rdfs:label "Days".
+    
+     db:triplifier_test_HN_Houston.Gray rdf:type owl:Class. 
+  
+     db:triplifier_test_HN_Houston.Gray rdfs:label "Gy".
+   
+     db:triplifier_test_HN_Houston.radiotherapyClass rdf:type owl:Class.
+    
+     db:triplifier_test_HN_Houston.radiotherapyClass dbo:table db:triplifier_test_HN_Houston.
+    
+     db:triplifier_test_HN_Houston.radiotherapyClass rdfs:label "Radiotherapy".
+     
+     db:triplifier_test_HN_Houston.neoplasmClass rdf:type owl:Class. 
+     
+     db:triplifier_test_HN_Houston.neoplasmClass dbo:table db:triplifier_test_HN_Houston.
+        
+     db:triplifier_test_HN_Houston.neoplasmClass rdfs:label "Neoplasm".
+    
+     ?tablerowHous dbo:has_column ?neoplasmHous, ?radiotherapyHous.
+    
+     ?neoplasmHous rdf:type db:triplifier_test_HN_Houston.neoplasmClass.
+    
+     ?radiotherapyHous rdf:type db:triplifier_test_HN_Houston.radiotherapyClass.
+        
+    }
+  
+}
+   
+where 
+{
+    BIND(IRI(CONCAT(str(?tablerowHous), "/neoplasm")) as ?neoplasmHous).
+    
+    BIND(IRI(CONCAT(str(?tablerowHous), "/radiotherapy")) as ?radiotherapyHous).
+    
+    ?tablerowHous rdf:type db:triplifier_test_HN_Houston.
+   
+}
+
+
