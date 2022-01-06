@@ -1,17 +1,27 @@
 # NWO-TRAIN
 
-## Prototype deployment of IKNL-like Personal Health Train infrastructure.
+## DATA STATIONS (DATA NODE) git branch
 
-### Requirements
-VM or real box containing (preferred) Ubuntu 18.04 LTS.
+This branch is for the setup of the data stations inside the partner clinics. 
 
-At least 16GB RAM.
+### System requirements for node
+Standalone VM or physical box containing (preferred) Ubuntu 20.04 LTS as operating system, ideally kept separate from direct contact with your production/clinical systems.
 
-At least 1 GPU if at all possible.
+Docker Community Edition relevant for your machine.
 
-Fast access storage of at least 20GB but as much as possible - more is always better.
+At least 16GB RAM of working RAM.
 
-### Docker Community Edition
+Fast access storage (eg ssd) of approximately 250GB but of course more is always better.
+
+Local and (ideally) static internal IP address to receive data incoming from inside the hospital via HTTP or HTTPS.
+
+DICOM export/push is possible from internal radiotherapy treatment planning system towards the abovementioned IP address.
+
+(optional) 1 NVIDIA GPU chip with 8GB or more of internal memory.
+
+Clinical researcher needs to have local admin rights on this node machine to install software and run applications
+
+### Install Docker Community Edition (latest stable version)
 
 Install Docker Engine relevant to your machine, it should be one of these below. Ubuntu is preferred but use whatever fits your system.
 
@@ -23,14 +33,20 @@ Install Docker Engine relevant to your machine, it should be one of these below.
 
 Set up docker with the instructions from [docs.docker.com](docs.docker.com).
 
-Check the installation is fine by running the simple hello-docker application.
+Check the installation is fine by running the simple test ```docker run hello-world```.
 
-Remember to install the docker-compose modue as well - it is missed from some of the install instructions.
+Remember to install the ***docker-compose modu;e*** as well - it is sometimes missed from the basic install instructions.
+
+### Install Clinical Trial Processor (Dicom Anonymizer) client application on node machine
 
 
-### python
+### Install XNAT and Python docker container
 
-We need a minimum of version 3.6 or higher. For windows, we recommend the Anaconda version. In Ubuntu, it does not seem to matter much so take the version that comes with Ubuntu.
+To begin with, we will set up a docker container that has the following components :
+
+XNAT DICOM Repository - for general documentation see [XNAT](https://www.xnat.org/) and [xnat-docker-compose](https://github.com/NrgXnat/xnat-docker-compose)
+
+Jupyter notebooks
 
 
 ### ppDLI installation
