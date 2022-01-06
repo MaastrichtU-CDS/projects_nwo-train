@@ -50,7 +50,15 @@ To begin with, we will set up a docker container that has the following componen
 - XNAT DICOM Repository - for general documentation see [XNAT](https://www.xnat.org/) and [xnat-docker-compose](https://github.com/NrgXnat/xnat-docker-compose)
 - Jupyter notebooks
 
-Step 1 : 
+Step 1 : Confirm that you have installed Docker Desktop free version and docker-compose. You can check that docker is properly installed by running the simple check :
+
+```
+(sudo) docker run hello-world
+```
+
+Step 2 : (Optional) Install the git library with ```(sudo) apt-get install git```. If you do not wish to use git, you can still download repositories as zip files from your web browser.
+
+Step 3 : Git clone or download this repository to you user root location. For example, mine is /home/ubuntu.
 
 ### ppDLI installation
 
