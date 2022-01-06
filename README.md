@@ -35,19 +35,22 @@ Set up docker with the instructions from [docs.docker.com](docs.docker.com).
 
 Check the installation is fine by running the simple test ```docker run hello-world```.
 
-Remember to install the ***docker-compose modu;e*** as well - it is sometimes missed from the basic install instructions.
+Remember to install the ***docker-compose module*** as well - it is sometimes missed from the basic install instructions.
+
 
 ### Install Clinical Trial Processor (Dicom Anonymizer) client application on node machine
+
+Instructions coming shortly.
 
 
 ### Install XNAT and Python docker container
 
 To begin with, we will set up a docker container that has the following components :
 
-XNAT DICOM Repository - for general documentation see [XNAT](https://www.xnat.org/) and [xnat-docker-compose](https://github.com/NrgXnat/xnat-docker-compose)
+- XNAT DICOM Repository - for general documentation see [XNAT](https://www.xnat.org/) and [xnat-docker-compose](https://github.com/NrgXnat/xnat-docker-compose)
+- Jupyter notebooks
 
-Jupyter notebooks
-
+Step 1 : 
 
 ### ppDLI installation
 
