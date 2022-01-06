@@ -7,17 +7,13 @@ This branch is for the setup of the data stations inside the partner clinics.
 ### System requirements for node
 Standalone VM or physical box containing (preferred) Ubuntu 20.04 LTS as operating system, ideally kept separate from direct contact with your production/clinical systems.
 
-Docker Community Edition relevant for your machine.
+- Docker Community Edition relevant for your machine.
+- At least 16GB RAM of working RAM.
+- Fast access storage (eg ssd) of approximately 250GB but of course more is always better.
+- Local and (ideally) static internal IP address to receive data incoming from inside the hospital via HTTP or HTTPS.
+- DICOM export/push is possible from internal radiotherapy treatment planning system towards the abovementioned IP address.
+- (optional) 1 NVIDIA GPU chip with 8GB or more of internal memory.
 
-At least 16GB RAM of working RAM.
-
-Fast access storage (eg ssd) of approximately 250GB but of course more is always better.
-
-Local and (ideally) static internal IP address to receive data incoming from inside the hospital via HTTP or HTTPS.
-
-DICOM export/push is possible from internal radiotherapy treatment planning system towards the abovementioned IP address.
-
-(optional) 1 NVIDIA GPU chip with 8GB or more of internal memory.
 
 Clinical researcher needs to have local admin rights on this node machine to install software and run applications
 
